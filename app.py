@@ -13,7 +13,7 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'this_should_be_configur
 @app.route('/')
 def home():
 	if not session.get('logged_in'):
-		return render_template('login.html')
+		return render_template('index.html')
 	else:
 		return render_template('home.html')
  
