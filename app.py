@@ -2,45 +2,24 @@ from flask import Flask, flash, redirect, url_for, render_template, request, ses
 import os
 
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder= "templates")
 
 
 # app.secret_key
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'this_should_be_configured')
- 
 
 
 @app.route('/')
 def home():
-	if not session.get('logged_in'):
-		return render_template('index.html')
-	else:
-		return render_template('home.html')
- 
-@app.route('/login', methods = ['POST'])
-def do_admin_login():
-	if request.form['password'] == 'admin' and request.form['username'] == 'admin':
-		session['logged_in'] = True
-	else:
-		flash('Wrong password!')
-	return home()
+	return render_template('index.html')
+
+@app.route('/contact', methods = ['POST'])
+def contact():
+	# if request.method == 'POST':
+	print("OK")
+	return render_template('contact.html')
 
 
-
-@app.route('/added', methods = ['POST'])
-def added():
-	if request.method == 'POST':
-		if request.form['add']:
-			flash("Done",'add')
-			return redirect(url_for('home'))
-		return redirect(url_for('home'))
-	
-@app.route('/logout')
-def logout():
-	session['logged_in'] = False
-	return redirect(url_for('home'))
-
- 
 if __name__ == "__main__":
 	try:
 		app.jinja_env.auto_reload = True
