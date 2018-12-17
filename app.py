@@ -13,7 +13,7 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'this_should_be_configur
 def home():
 	return render_template('index.html')
 
-@app.route('/contact', methods = ['POST'])
+@app.route('/contact', methods = ['GET'])
 def contact():
 	# if request.method == 'POST':
 	print("OK")
