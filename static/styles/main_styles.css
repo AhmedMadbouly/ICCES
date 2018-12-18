@@ -46,6 +46,7 @@ body
 	background: #FFFFFF;
 	color: #a5a5a5;
 }
+hr	{border-color: black;width: 50%;margin-left: 25%}
 div
 {
 	display: block;
@@ -58,12 +59,6 @@ ul
 {
 	list-style: none;
 	margin-bottom: 0px;
-}
-hr
-{
-	border-color: black;
-	width: 50%;
-	margin-left: 25%
 }
 p
 {
